@@ -1,0 +1,43 @@
+.section-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.section-left {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.section-right {
+  width: 50%;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.section-right pre {
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}

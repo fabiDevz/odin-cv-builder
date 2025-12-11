@@ -1,26 +1,20 @@
-import { useState } from 'react'
-import InputCard from './components/InputCard.jsx'
+import { useState } from 'react';
+import Section from './components/Section';
 
 function App() {
+
+const generalInformation = ['Nombre','Email', 'Teléfono'];
+const educationalExperience = ['Centro educacional', 'Grado académico', 'Fecha estudios'];
+const practicalExperience =  ['Nombre empresa', 'Cargo', 'Funciones', 'Fechas'];
 
 
   return (
     <>
-     <InputCard
-      title={'Información Personal '}
-      nameInput={['Nombre', 'Apellido', 'Teléfono', 'Email']}
-     ></InputCard>
-
-     <InputCard
-      title={'Educación'}
-      nameInput={['Universidad y/o Instituto', 'Titulo obtenido', 'Fecha estudios']}
-     >
-     </InputCard>
-
-    <InputCard
-      title={'Experiencia'}
-      nameInput={['Nombre compañia', 'Cargo', 'Responsabilidades' , 'Fecha Inicio', 'Fecha término']}
-    ></InputCard>
+      <Section
+        generalInformation = {generalInformation}
+        educationalExperience = {educationalExperience}
+        practicalExperience = {practicalExperience}
+      ></Section>
     </>
   )
 }
