@@ -1,42 +1,148 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* App.css */
+
+/* Reset básico para que no haya márgenes extraños */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  background-color: #f3f4f6;
+  height: 100vh;
+  overflow: hidden; /* Evita scroll en el body, lo haremos interno */
+}
+
+/* Contenedor Principal: Divide la pantalla en dos */
+.main-container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+}
+
+/* --- Panel Izquierdo (Editor) --- */
+.left-container {
+  flex: 1; /* Toma 1 parte del espacio */
+  background-color: #ffffff;
   padding: 2rem;
+  overflow-y: auto; /* Scroll si el contenido es muy largo */
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Espacio entre secciones */
+}
+
+/* Estilos genéricos para tus secciones (Añade clase 'section' a tus divs contenedores si quieres) */
+.section-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+h2, h3 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+/* Estilos para Inputs y Labels dentro de tus componentes */
+input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2563eb;
+}
+
+/* --- Panel Derecho (Vista Previa / Template) --- */
+.right-container {
+  flex: 1; /* Toma 1 parte del espacio */
+  background-color: #52525b; /* Fondo oscuro para resaltar la hoja */
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Simulación de hoja A4 */
+.resume-paper {
+  background-color: white;
+  width: 210mm; /* Ancho A4 estándar */
+  min-height: 297mm; /* Alto A4 estándar */
+  padding: 2rem; /* Márgenes de la hoja */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  color: #333;
+}
+
+/* Puedes usar esta clase dentro de tu TemplateSection */
+.resume-header {
+  border-bottom: 2px solid #333;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.resume-section {
+  margin-bottom: 1.5rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.resume-section h3 {
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Responsive para móbiles: Columna en vez de fila */
+@media (max-width: 900px) {
+  .main-container {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .right-container {
+    padding: 1rem;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  .resume-paper {
+    width: 100%;
+    min-height: auto;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
