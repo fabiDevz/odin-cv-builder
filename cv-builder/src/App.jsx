@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useId } from 'react';
 import './App.css'; 
 import ContactSection from './components/ContactSection';
 import EducationSection from './components/EducationSection';
@@ -79,6 +79,37 @@ function handleSkillChange(e){
   });
 };
 
+function addEducation(){
+  const newEducation ={
+    id: crypto.randomUUID(),
+    school:'',
+    grade:'',
+    educationDate:''
+  };
+
+  setEducation([...education, newEducation]);
+};
+
+function deleteEducation(index)
+{
+  setEducation(education.filter((item) => item.id !== index));
+};
+
+function addExperience(){
+  const newExperience={
+    id: crypto.randomUUID(),
+    enterprise:'',
+    positions:'',
+    functions:'',
+    experienceDate:''
+  };
+};
+
+function deleteExperience(index)
+{
+  setExperience(experience.filter((item)=> item.id !== index));
+}
+
 
 
 
@@ -94,10 +125,14 @@ function handleSkillChange(e){
           <EducationSection
             data = {education}
             onChange={handleEducationChange}
+            onAdd={addEducation}
+            onDelete={deleteEducation}
           />
           <ExperienceSection
           data ={experience}
             onChange={handleExperienceChange}
+            onAdd={addExperience}
+            onDelete={deleteExperience}
           />
           <ContactSection/>
           <SkillSection

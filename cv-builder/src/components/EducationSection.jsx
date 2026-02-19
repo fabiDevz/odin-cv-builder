@@ -1,4 +1,4 @@
-function EducationSection({data, onChange}) {
+function EducationSection({data, onChange, onAdd, onDelete}) {
 
 
   return (
@@ -38,11 +38,24 @@ function EducationSection({data, onChange}) {
           placeholder=" dd/mm/aaaa"
         />
 
-
+<button 
+            onClick={() => onDelete(item.id)} 
+            style={{backgroundColor: '#ef4444', marginTop: '10px'}} // Rojo peligroso
+          >
+            Eliminar
+          </button>
       </div>
 
+
+
   ) })}
-      
+      {/* 3. Botón AGREGAR (Afuera del loop, al final) */}
+      <button 
+        onClick={onAdd}
+        style={{marginTop: '1rem', width: '100%', backgroundColor: '#22c55e'}} // Verde éxito
+      >
+        + Agregar Educación
+      </button>
     </>
   )
 }

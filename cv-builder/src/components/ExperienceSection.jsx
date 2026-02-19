@@ -1,4 +1,4 @@
-function ExperienceSection({data, onChange}) {
+function ExperienceSection({data, onChange, onAdd, onDelete}) {
 
 
   return (
