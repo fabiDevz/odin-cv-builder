@@ -29,7 +29,7 @@ body {
   padding: 2rem;
   overflow-y: auto; /* Scroll si el contenido es muy largo */
   border-right: 1px solid #e5e7eb;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 2rem; /* Espacio entre secciones */
@@ -43,7 +43,8 @@ body {
   padding: 1.5rem;
 }
 
-h2, h3 {
+h2,
+h3 {
   color: #1f2937;
   margin-bottom: 1rem;
 }
@@ -104,7 +105,9 @@ button:hover {
   width: 210mm; /* Ancho A4 estándar */
   min-height: 297mm; /* Alto A4 estándar */
   padding: 2rem; /* Márgenes de la hoja */
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   color: #333;
 }
 
@@ -136,11 +139,11 @@ button:hover {
     height: auto;
     overflow: visible;
   }
-  
+
   .right-container {
     padding: 1rem;
   }
-  
+
   .resume-paper {
     width: 100%;
     min-height: auto;

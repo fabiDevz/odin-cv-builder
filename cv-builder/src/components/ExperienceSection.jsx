@@ -7,13 +7,14 @@ function ExperienceSection({data, onChange, onAdd, onDelete}) {
 
     <h2>Experiencia</h2>
    </div>
-   <div className='input-group'>
+    {data.map((item) =>{return(
+      <div key ={item.id} className='input-group'>
         <label>Nombre empresa</label>
         <input 
           type="text"
           name="enterprise"          // IMPORTANTE: Coincide con person.name
-          value={data.enterprise}    // "Controlled Component": El valor viene del estado
-          onChange={onChange}  // Cuando escribo, llamo a la función de App
+          value={item.enterprise}    // "Controlled Component": El valor viene del estado
+          onChange={(e) => onChange(item.id, e)}  // Cuando escribo, llamo a la función de App
           placeholder="Ej: Doofertzmith inc."
         />
 
@@ -22,8 +23,8 @@ function ExperienceSection({data, onChange, onAdd, onDelete}) {
         <input 
           type="text"
           name="position"          // IMPORTANTE: Coincide con person.name
-          value={data.position}    // "Controlled Component": El valor viene del estado
-          onChange={onChange}  // Cuando escribo, llamo a la función de App
+          value={item.position}    // "Controlled Component": El valor viene del estado
+          onChange={(e) => onChange(item.id, e)}  // Cuando escribo, llamo a la función de App
           placeholder="Ej: Programador..."
         />
 
@@ -32,8 +33,8 @@ function ExperienceSection({data, onChange, onAdd, onDelete}) {
         <input 
           type="text"
           name="functions"          // IMPORTANTE: Coincide con person.name
-          value={data.functions}    // "Controlled Component": El valor viene del estado
-          onChange={onChange}  // Cuando escribo, llamo a la función de App
+          value={item.functions}    // "Controlled Component": El valor viene del estado
+          onChange={(e) => onChange(item.id, e)}  // Cuando escribo, llamo a la función de App
           placeholder="Supervisar la planta de energia nuclear..."
         />
 
@@ -41,15 +42,27 @@ function ExperienceSection({data, onChange, onAdd, onDelete}) {
         <input 
           type="date"
           name="experienceDate"          // IMPORTANTE: Coincide con person.name
-          value={data.experienceDate}    // "Controlled Component": El valor viene del estado
-          onChange={onChange}  // Cuando escribo, llamo a la función de App
-          placeholder="Supervisar la planta de energia nuclear..."
+          value={item.experienceDate}    // "Controlled Component": El valor viene del estado
+          onChange={(e) => onChange(item.id, e)} // Cuando escribo, llamo a la función de App
+          placeholder="dd/mm/aaaa"
         />
 
 
+<button 
+            onClick={() => onDelete(item.id)} 
+            style={{backgroundColor: '#ef4444', marginTop: '10px'}} // Rojo peligroso
+          >
+            Eliminar
+          </button>
+      </div>)
 
-      </div>
-      
+    })}
+       <button 
+        onClick={onAdd}
+        style={{marginTop: '1rem', width: '100%', backgroundColor: '#22c55e'}} // Verde éxito
+      >
+        + Agregar Experiencia
+      </button>
     </>
   )
 }
